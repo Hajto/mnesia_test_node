@@ -6,6 +6,6 @@ defmodule MnesiaTest do
     |> Enum.each(fn {a,b,c,d} ->
       IO.inspect Node.connect( :"#{System.get_env("MY_POD_NAMESPACE")}@#{a}.#{b}.#{c}.#{d}" ) #<- connect
     end)
-    {:ok, Task.Supervisor.start_link()} #Just to stahp the system
+    Task.Supervisor.start_link() #Just to stahp the sys
   end
 end
