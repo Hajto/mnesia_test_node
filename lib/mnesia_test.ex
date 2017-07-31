@@ -3,7 +3,7 @@ defmodule MnesiaTest do
 
   def start(_,_) do
     :timer.sleep(5000);
-    :inet_res.nslookup(System.get_env("APP_NAME")<>".default.svc.cluster.local." |> IO.inspect,:in,:a)
+    :inet_res.nslookup(System.get_env("APP_NAME")<>".default.svc.cluster.local." |> IO.inspect |> to_charlist,:in,:a)
     |> IO.inspect
     |> Enum.each(fn {a,b,c,d} ->
       IO.inspect Node.connect( :"#{System.get_env("MY_POD_NAMESPACE")}@#{a}.#{b}.#{c}.#{d}" ) #<- connect
