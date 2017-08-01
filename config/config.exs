@@ -8,6 +8,14 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
+config :libcluster,
+  topologies: [
+    k8s: [
+      strategy: Cluster.Strategy.Kubernetes,
+      config: [
+        kubernetes_selector: "app=erlangpl-demo-mnesia",
+        kubernetes_node_basename: "node"]]]
+
 # You can configure for your application as:
 #
 #     config :mnesia_test, key: :value

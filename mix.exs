@@ -28,6 +28,6 @@ defmodule MnesiaTest.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:libcluster, "~> 2.1"}]
   end
 end
